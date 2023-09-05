@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "compile",
+			"path": "cats-everywhere",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: compile - cats-everywhere",
+			"detail": "webpack"
+		}
+	]
+}
