@@ -57,7 +57,23 @@ function activate(context) {
     let disposable = vscode.commands.registerCommand('cats-everywhere.helloWorld', () => {
         // The code you place here will be executed every time your command is executed
         // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World from Cats Everywhere!');
+        vscode.window.registerFileDecorationProvider({
+            provideFileDecoration(uri, token) {
+                const cat = "🐱";
+                return new vscode.FileDecoration("🐱", "Cats Everywhere");
+            }
+        });
+        const status = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 100);
+        status.name = "🌷";
+        status.text = "🌷";
+        status.show();
+        status.command = "cats-eveywhere.helloStatus";
+        // vscode.window.showInformationMessage('Hello World from Cats Everywhere!');
+    });
+    context.subscriptions.push(disposable);
+    disposable = vscode.commands.registerCommand('cats-everywhere.helloStatus', async () => {
+        const s = await vscode.window.showInformationMessage('Hello World from Cats Everywhere!', "OK");
+        console.log(s);
     });
     context.subscriptions.push(disposable);
 }
