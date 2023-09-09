@@ -13,8 +13,8 @@
   "main": "./extension.js",
   "contributes": {
     "commands": [{
-      "command": "wds-search-blog-example.helloWorld",
-      "title": "Hello World"
+      "command": "wds-search-blog-example.searchWdsBlogExample",
+      "title": "Search WDS Blog Example"
     }]
   },
   "scripts": {
